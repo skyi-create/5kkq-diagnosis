@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나의 5ㄲ 역량 진단 | 이성기 교수 특강</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ────────────────────────────────────────────
+   RESET & BASE
+──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #1B2A4A;
+  --gold:   #C8A84B;
+  --brown:  #8B4513;
+  --cream:  #F8F4EC;
+  --white:  #ffffff;
+  --gray1:  #f2f2f2;
+  --gray2:  #e0e0e0;
+  --gray3:  #999;
+  --text:   #222;
+
+  /* 역량별 컬러 */
+  --c-kkum:  #1B2A4A;  /* 꿈 - 네이비 */
+  --c-kkang: #C0392B;  /* 깡 - 레드 */
+  --c-kki:   #C8A84B;  /* 끼 - 골드 */
+  --c-kkun:  #27AE60;  /* 끈 - 그린 */
+  --c-kkoe:  #8B4513;  /* 꾀 - 브라운 */
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ────────────────────────────────────────────
+   HEADER
+──────────────────────────────────────────── */
+header {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 40px 24px 32px;
+}
+header .tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+header h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(26px, 5vw, 40px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+header h1 span { color: var(--gold); }
+header p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ────────────────────────────────────────────
+   GUIDE BAR
+──────────────────────────────────────────── */
+.guide-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray2);
+  padding: 14px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.guide-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--gray3);
+}
+.guide-item .dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.guide-sep { color: var(--gray2); font-size: 12px; }
+
+/* ────────────────────────────────────────────
+   MAIN WRAPPER
+──────────────────────────────────────────── */
+.main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+/* ────────────────────────────────────────────
+   SECTION
+──────────────────────────────────────────── */
+.section {
+  background: var(--white);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--gray2);
+}
+.section-badge {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.section-info h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.section-info h2 small {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray3);
+  margin-left: 8px;
+}
+.section-info p {
+  font-size: 12px;
+  color: var(--gray3);
+  margin-top: 3px;
+}
+
+/* ────────────────────────────────────────────
+   QUESTIONS
+──────────────────────────────────────────── */
+.questions { padding: 8px 24px 20px; }
+
+.q-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gray1);
+}
+.q-item:last-child { border-bottom: none; }
+
+.q-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #333;
+}
+.q-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--white);
+  margin-right: 8px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* 라디오 버튼 그룹 */
+.scale-group {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--gray2);
+}
+.scale-label {
+  flex: 1;
+  position: relative;
+}
+.scale-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+.scale-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--white);
+  border-right: 1px solid var(--gray2);
+  min-height: 58px;
+  user-select: none;
+}
+.scale-label:last-child .scale-btn { border-right: none; }
+
+.scale-btn .num {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.scale-btn .desc {
+  font-size: 9px;
+  color: var(--gray3);
+  text-align: center;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* hover */
+.scale-label:hover .scale-btn {
+  background: var(--gray1);
+}
+
+/* checked state — JS로 색상 클래스 적용 */
+.scale-label input:checked + .scale-btn {
+  color: var(--white) !important;
+}
+.scale-label input:checked + .scale-btn .desc {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* ────────────────────────────────────────────
+   PROGRESS
+──────────────────────────────────────────── */
+.progress-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+.progress-bar-outer {
+  height: 6px;
+  background: var(--gray2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.progress-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+.progress-text {
+  font-size: 11px;
+  color: var(--gray3);
+  text-align: right;
+}
+
+/* ────────────────────────────────────────────
+   SUBMIT BUTTON
+──────────────────────────────────────────── */
+.submit-wrap {
+  text-align: center;
+  margin-top: 16px;
+}
+.btn-submit {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 52px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(27,42,74,0.3);
+}
+.btn-submit:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+.btn-submit:disabled { background: var(--gray2); color: var(--gray3); cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* ────────────────────────────────────────────
+   RESULT PAGE
+──────────────────────────────────────────── */
+#result-page {
+  display: none;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.result-header h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.result-header p { font-size: 14px; color: var(--gray3); }
+
+/* 레이더 차트 */
+.chart-wrap {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chart-wrap svg { max-width: 340px; width: 100%; }
+
+/* 점수 바 */
+.score-bars {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.score-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.score-bar-item:last-child { margin-bottom: 0; }
+
+.score-label {
+  width: 48px;
+  font-size: 15px;
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+}
+.score-bar-track {
+  flex: 1;
+  height: 18px;
+  background: var(--gray1);
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+}
+.score-bar-fill {
+  height: 100%;
+  border-radius: 9px;
+  transition: width 0.8s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+}
+.score-bar-fill::after {
+  content: attr(data-score);
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--white);
+}
+.score-num {
+  width: 36px;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* 역량별 피드백 카드 */
+.feedback-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+@media (max-width: 520px) {
+  .feedback-cards { grid-template-columns: 1fr; }
+}
+
+.feedback-card {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 18px;
+  border-left: 4px solid transparent;
+}
+.feedback-card .fc-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.fc-badge {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  font-weight: 900;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.fc-title { font-size: 14px; font-weight: 700; }
+.fc-level { font-size: 11px; font-weight: 500; margin-left: auto; padding: 2px 8px; border-radius: 10px; color: var(--white); }
+.feedback-card p { font-size: 12px; line-height: 1.7; color: #555; }
+
+/* 종합 메시지 */
+.overall-msg {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 28px 28px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.overall-msg .om-quote {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.overall-msg h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.overall-msg h3 span { color: var(--gold); }
+.overall-msg p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+/* 버튼 */
+.result-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-retry {
+  background: var(--white);
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  border-radius: 50px;
+  padding: 13px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-retry:hover { background: var(--navy); color: var(--white); }
+.btn-print {
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 50px;
+  padding: 13px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-print:hover { background: var(--navy); color: var(--white); }
+
+/* ────────────────────────────────────────────
+   PRINT
+──────────────────────────────────────────── */
+@media print {
+  body { background: white; }
+  header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .progress-wrap, .submit-wrap, .result-btns, .guide-bar { display: none; }
+  .section, .feedback-card, .chart-wrap, .score-bars, .overall-msg {
+    box-shadow: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .section { break-inside: avoid; }
+}
+
+/* ────────────────────────────────────────────
+   FOOTER
+──────────────────────────────────────────── */
+.page-footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--gray3);
+  padding: 16px 0 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header>
+  <div class="tag">이성기 교수 특강 · 자기진단 워크시트</div>
+  <h1>나의 <span>5ㄲ</span> 역량 진단</h1>
+  <p>꿈 · 깡 · 끼 · 끈 · 꾀<br>
+  총 20문항, 약 5분 소요 | 각 문항을 솔직하게 체크해 보세요.</p>
+</header>
+
+<!-- 색상 범례 -->
+<div class="guide-bar">
+  <div class="guide-item"><span class="dot" style="background:var(--c-kkum)"></span>꿈 (Dream)</div>
+  <span class="guide-sep">·</span>
+  <div class="guide-item"><span class="dot" style="background:var(--c-kkang)"></span>깡 (Grit)</div>
+  <span class="guide-sep">·</span>
+  <div class="guide-item"><span class="dot" style="background:var(--c-kki)"></span>끼 (Talent)</div>
+  <span class="guide-sep">·</span>
+  <div class="guide-item"><span class="dot" style="background:var(--c-kkun)"></span>끈 (Network)</div>
+  <span class="guide-sep">·</span>
+  <div class="guide-item"><span class="dot" style="background:var(--c-kkoe)"></span>꾀 (Strategy)</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FORM PAGE
+══════════════════════════════════════════ -->
+<div id="form-page">
+
+  <!-- 진행 바 -->
+  <div class="progress-wrap">
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-text" id="progressText">0 / 20 응답</div>
+  </div>
+
+  <div class="main">
+
+    <!-- ─── 섹션 1: 꿈 ─── -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge" style="background:var(--c-kkum)">꿈</div>
+        <div class="section-info">
+          <h2>꿈 <small>Dream · 방향과 목적</small></h2>
+          <p>내가 어디로 가고 있는지 알고 있는가?</p>
+        </div>
+      </div>
+      <div class="questions" id="sec-kkum"></div>
+    </div>
+
+    <!-- ─── 섹션 2: 깡 ─── -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge" style="background:var(--c-kkang)">깡</div>
+        <div class="section-info">
+          <h2>깡 <small>Grit · 근성과 끈기</small></h2>
+          <p>포기하지 않고 버텨내는 힘이 있는가?</p>
+        </div>
+      </div>
+      <div class="questions" id="sec-kkang"></div>
+    </div>
+
+    <!-- ─── 섹션 3: 끼 ─── -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge" style="background:var(--c-kki)">끼</div>
+        <div class="section-info">
+          <h2>끼 <small>Talent · 개성과 강점</small></h2>
+          <p>나만이 가진 색깔과 재능을 알고 있는가?</p>
+        </div>
+      </div>
+      <div class="questions" id="sec-kki"></div>
+    </div>
+
+    <!-- ─── 섹션 4: 끈 ─── -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge" style="background:var(--c-kkun)">끈</div>
+        <div class="section-info">
+          <h2>끈 <small>Network · 관계와 신뢰</small></h2>
+          <p>진심으로 연결된 사람이 있는가?</p>
+        </div>
+      </div>
+      <div class="questions" id="sec-kkun"></div>
+    </div>
+
+    <!-- ─── 섹션 5: 꾀 ─── -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-badge" style="background:var(--c-kkoe)">꾀</div>
+        <div class="section-info">
+          <h2>꾀 <small>Strategy · 전략과 지혜</small></h2>
+          <p>목표를 향한 나만의 길을 찾는가?</p>
+        </div>
+      </div>
+      <div class="questions" id="sec-kkoe"></div>
+    </div>
+
+    <!-- 제출 버튼 -->
+    <div class="submit-wrap">
+      <button class="btn-submit" id="btnSubmit" onclick="showResult()" disabled>
+        ✦ 결과 확인하기
+      </button>
+      <p style="font-size:12px;color:var(--gray3);margin-top:10px;">
+        20문항을 모두 응답한 후 활성화됩니다
+      </p>
+    </div>
+
+    <div class="page-footer">
+      ※ 이 진단지는 자기 성찰을 위한 도구입니다. 점수가 낮다고 걱정하지 마세요 — 지금이 시작점입니다. 🐂
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /form-page -->
+
+
+<!-- ══════════════════════════════════════════
+     RESULT PAGE
+══════════════════════════════════════════ -->
+<div id="result-page">
+
+  <div class="result-header">
+    <h2>나의 5ㄲ 역량 지도</h2>
+    <p id="result-date"></p>
+  </div>
+
+  <!-- 레이더 차트 -->
+  <div class="chart-wrap">
+    <svg id="radarChart" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg"></svg>
+    <p style="font-size:12px;color:var(--gray3);margin-top:12px;text-align:center;">
+      각 꼭짓점은 최대 20점 기준입니다
+    </p>
+  </div>
+
+  <!-- 점수 바 -->
+  <div class="score-bars" id="scoreBars"></div>
+
+  <!-- 역량별 피드백 -->
+  <div class="feedback-cards" id="feedbackCards"></div>
+
+  <!-- 종합 메시지 -->
+  <div class="overall-msg" id="overallMsg"></div>
+
+  <!-- 버튼 -->
+  <div class="result-btns">
+    <button class="btn-retry" onclick="retry()">↩ 다시 진단하기</button>
+    <button class="btn-print" onclick="window.print()">🖨 인쇄 / PDF 저장</button>
+  </div>
+
+  <div class="page-footer">이성기 교수 특강 「황소처럼 걸어온 30년」 | 5ㄲ 역량 자기진단</div>
+
+</div><!-- /result-page -->
+
+
+<script>
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+const DIMS = [
+  { key: 'kkum',  label: '꿈', sub: 'Dream',    color: '#1B2A4A', emoji: '🌠' },
+  { key: 'kkang', label: '깡', sub: 'Grit',     color: '#C0392B', emoji: '🔥' },
+  { key: 'kki',   label: '끼', sub: 'Talent',   color: '#C8A84B', emoji: '✨' },
+  { key: 'kkun',  label: '끈', sub: 'Network',  color: '#27AE60', emoji: '🤝' },
+  { key: 'kkoe',  label: '꾀', sub: 'Strategy', color: '#8B4513', emoji: '🧭' },
+];
+
+const QUESTIONS = {
+  kkum: [
+    '나는 5년 후 내가 무엇을 하고 있을지 구체적으로 그릴 수 있다.',
+    '내 목표는 "○○가 되고 싶다"보다 "○○를 하고 싶다"로 표현된다.',
+    '나는 내가 왜 이 길을 가려는지 이유를 말할 수 있다.',
+    '오늘 할 일을 떠올릴 때 기대감이나 설렘이 느껴질 때가 있다.',
+  ],
+  kkang: [
+    '힘든 상황에서도 포기하지 않고 끝까지 해낸 경험이 있다.',
+    '실패한 뒤에도 다시 도전한 경험이 여러 번 있다.',
+    '주변에서 그만두라고 해도 내가 옳다고 판단하면 밀어붙인다.',
+    '지루하고 고된 과정도 목표를 위해 묵묵히 버텨낼 수 있다.',
+  ],
+  kki: [
+    '나만의 특별한 강점이나 재능이 있다고 생각한다.',
+    '다른 사람에게 "너는 이걸 정말 잘한다"는 말을 들은 적이 있다.',
+    '남들보다 내가 더 잘할 수 있는 분야가 하나쯤은 있다.',
+    '나는 나만의 개성이나 스타일을 갖고 있다.',
+  ],
+  kkun: [
+    '나는 받기보다 먼저 베푸는 편이다.',
+    '당장 도움이 되지 않는 사람에게도 진심으로 대하려고 한다.',
+    '오랫동안 연락이 없어도 내가 연락하면 기꺼이 도와줄 사람이 있다.',
+    '새로운 사람을 만나는 것을 즐기거나 두려워하지 않는다.',
+  ],
+  kkoe: [
+    '같은 목표라면 더 효율적인 방법을 찾으려고 한다.',
+    '정면 돌파가 어려울 때 돌아가는 방법을 생각해본 경험이 있다.',
+    '일을 시작하기 전에 순서와 전략을 먼저 머릿속에 그린다.',
+    '남들이 잘 쓰지 않는 새로운 방식을 시도해본 적이 있다.',
+  ],
+};
+
+const FEEDBACK = {
+  kkum: {
+    high: { level: '선명함', msg: '당신의 꿈은 이미 동사로 살아있습니다. 그 방향을 믿고 한 걸음씩 걸어가세요.' },
+    mid:  { level: '형성 중', msg: '꿈의 윤곽이 보이기 시작했습니다. 구체적인 행동 하나를 오늘 시작해보세요.' },
+    low:  { level: '탐색 중', msg: '꿈이 없는 게 아니라 아직 발견 전입니다. "내가 언제 시간 가는 줄 모르는가?"를 물어보세요.' },
+  },
+  kkang: {
+    high: { level: '강인함', msg: '황소처럼 버티는 힘이 이미 있습니다. 그 근성이 결정적 순간을 만들 것입니다.' },
+    mid:  { level: '성장 중', msg: '버텨본 경험이 있군요. 그 경험을 기억하고, 다음 위기에 꺼내 쓰세요.' },
+    low:  { level: '준비 중', msg: '깡은 연습으로 키워집니다. 작고 불편한 것부터 끝까지 해보는 훈련을 시작해보세요.' },
+  },
+  kki: {
+    high: { level: '뚜렷함', msg: '당신만의 색깔이 있습니다. 그 끼를 더 깊고 날카롭게 다듬는 것이 다음 단계입니다.' },
+    mid:  { level: '발견 중', msg: '무언가 잘하는 것이 있군요. 그것을 더 의식적으로 키워보세요.' },
+    low:  { level: '탐구 중', msg: '아직 내 강점을 정의하지 못했을 뿐입니다. 주변 사람들에게 "내가 뭘 잘해?" 라고 물어보세요.' },
+  },
+  kkun: {
+    high: { level: '풍부함', msg: '당신 주변에 사람이 모이는 데는 이유가 있습니다. 그 관계가 언젠가 결정적인 문을 열어줄 것입니다.' },
+    mid:  { level: '형성 중', msg: '관계의 씨앗이 심어지고 있습니다. 먼저 연락하는 사람이 되어보세요.' },
+    low:  { level: '시작 단계', msg: '끈은 이용이 아니라 진심입니다. 내가 먼저 주는 작은 행동 하나가 시작점입니다.' },
+  },
+  kkoe: {
+    high: { level: '날카로움', msg: '전략적 사고가 이미 작동하고 있습니다. 그 꾀를 윤리적 목표에 연결하면 더욱 강력해집니다.' },
+    mid:  { level: '개발 중', msg: '방법을 찾으려는 의지가 있군요. "왜 이 방법인가?"를 더 자주 자신에게 물어보세요.' },
+    low:  { level: '준비 중', msg: '꾀는 경험과 독서에서 나옵니다. 다양한 사람의 이야기와 사례를 많이 접해보세요.' },
+  },
+};
+
+const OVERALL = [
+  { min: 85, title: '황소형 준비 완료 🐂', msg: '5가지 역량이 고르게 발달해 있습니다. 이제 출발점이 아닌 가속 구간입니다. 꿈을 더 크게 동사로 바꿔보세요.' },
+  { min: 70, title: '성장 궤도 진입 중 🌱', msg: '강한 역량과 보완할 역량이 함께 보입니다. 강점을 무기 삼아, 약점을 의식적으로 키워가는 것이 전략입니다.' },
+  { min: 50, title: '가능성의 씨앗 🌰', msg: '아직 꽃피우지 않은 역량이 많습니다. 이성기 교수도 철도청 기관사보로 시작했습니다. 지금이 바로 그 출발점입니다.' },
+  { min:  0, title: '지금이 딱 좋은 시작점 ✦', msg: '낮은 점수는 부족함이 아니라 가능성입니다. 5ㄲ 중 하나라도 오늘 첫 발을 내딛어 보세요.' },
+];
+
+/* ═══════════════════════════════════════════
+   BUILD FORM
+═══════════════════════════════════════════ */
+const SCALE_LABELS = ['전혀\n아니다', '아니다', '보통', '그렇다', '매우\n그렇다'];
+
+let answered = 0;
+const totalQ = 20;
+
+function buildForm() {
+  DIMS.forEach((dim, di) => {
+    const container = document.getElementById('sec-' + dim.key);
+    QUESTIONS[dim.key].forEach((q, qi) => {
+      const globalIdx = di * 4 + qi;
+      const qDiv = document.createElement('div');
+      qDiv.className = 'q-item';
+
+      const qText = document.createElement('div');
+      qText.className = 'q-text';
+      qText.innerHTML = `<span class="q-num" style="background:${dim.color}">${globalIdx + 1}</span>${q}`;
+      qDiv.appendChild(qText);
+
+      const scaleGroup = document.createElement('div');
+      scaleGroup.className = 'scale-group';
+
+      for (let v = 1; v <= 5; v++) {
+        const label = document.createElement('label');
+        label.className = 'scale-label';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = `q_${dim.key}_${qi}`;
+        radio.value = v;
+        radio.addEventListener('change', onAnswer);
+
+        const btn = document.createElement('div');
+        btn.className = 'scale-btn';
+        btn.innerHTML = `<span class="num">${v}</span><span class="desc">${SCALE_LABELS[v-1].replace('\n','<br>')}</span>`;
+
+        label.appendChild(radio);
+        label.appendChild(btn);
+        scaleGroup.appendChild(label);
+      }
+
+      qDiv.appendChild(scaleGroup);
+      container.appendChild(qDiv);
+    });
+  });
+}
+
+function onAnswer(e) {
+  const radio = e.target;
+  const name = radio.name;
+  const val = parseInt(radio.value);
+
+  // 같은 name 의 모든 label 스타일 초기화
+  document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+    const btn = r.nextElementSibling;
+    btn.style.background = '';
+    btn.style.color = '';
+    btn.querySelector('.desc').style.color = '';
+  });
+
+  // 선택된 버튼 색상 적용
+  const btn = radio.nextElementSibling;
+
+  // 해당 dimension 색상 찾기
+  const dimKey = name.split('_')[1];
+  const dim = DIMS.find(d => d.key === dimKey);
+  btn.style.background = dim.color;
+  btn.style.color = '#fff';
+  btn.querySelector('.desc').style.color = 'rgba(255,255,255,0.85)';
+
+  updateProgress();
+}
+
+function updateProgress() {
+  answered = 0;
+  DIMS.forEach(dim => {
+    QUESTIONS[dim.key].forEach((_, qi) => {
+      const checked = document.querySelector(`input[name="q_${dim.key}_${qi}"]:checked`);
+      if (checked) answered++;
+    });
+  });
+  const pct = (answered / totalQ) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${answered} / ${totalQ} 응답`;
+  document.getElementById('btnSubmit').disabled = (answered < totalQ);
+}
+
+/* ═══════════════════════════════════════════
+   CALCULATE SCORES
+═══════════════════════════════════════════ */
+function calcScores() {
+  const scores = {};
+  DIMS.forEach(dim => {
+    let total = 0;
+    QUESTIONS[dim.key].forEach((_, qi) => {
+      const checked = document.querySelector(`input[name="q_${dim.key}_${qi}"]:checked`);
+      if (checked) total += parseInt(checked.value);
+    });
+    scores[dim.key] = total; // max 20
+  });
+  return scores;
+}
+
+/* ═══════════════════════════════════════════
+   RADAR CHART (SVG)
+═══════════════════════════════════════════ */
+function drawRadar(scores) {
+  const svg = document.getElementById('radarChart');
+  const cx = 180, cy = 180, R = 130;
+  const n = 5;
+  const labels = ['꿈', '깡', '끼', '끈', '꾀'];
+  const colors = DIMS.map(d => d.color);
+  // 꼭짓점 각도: 상단(꿈)부터 시계방향
+  // 꿈(top), 깡(top-right), 끼(bottom-right), 끈(bottom-left), 꾀(top-left)
+  const angles = Array.from({length: n}, (_, i) => (i * 2 * Math.PI / n) - Math.PI / 2);
+
+  function pt(r, angle) {
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+  }
+
+  let html = '';
+
+  // 배경 격자 (5단계)
+  for (let level = 1; level <= 5; level++) {
+    const r = (R / 5) * level;
+    const pts = angles.map(a => pt(r, a));
+    const d = pts.map((p, i) => (i === 0 ? `M${p.x},${p.y}` : `L${p.x},${p.y}`)).join(' ') + 'Z';
+    html += `<path d="${d}" fill="none" stroke="#e8e8e8" stroke-width="${level === 5 ? 1.5 : 0.8}"/>`;
+  }
+
+  // 격자 선 (중심 → 꼭짓점)
+  angles.forEach(a => {
+    const p = pt(R, a);
+    html += `<line x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}" stroke="#e8e8e8" stroke-width="0.8"/>`;
+  });
+
+  // 점수 다각형
+  const keys = DIMS.map(d => d.key);
+  const scoreVals = keys.map(k => scores[k]);
+  const scorePts = angles.map((a, i) => pt((scoreVals[i] / 20) * R, a));
+  const scoreD = scorePts.map((p, i) => (i === 0 ? `M${p.x},${p.y}` : `L${p.x},${p.y}`)).join(' ') + 'Z';
+  html += `<path d="${scoreD}" fill="rgba(200,168,75,0.25)" stroke="#C8A84B" stroke-width="2.5" stroke-linejoin="round"/>`;
+
+  // 점수 점
+  scorePts.forEach((p, i) => {
+    html += `<circle cx="${p.x}" cy="${p.y}" r="6" fill="${colors[i]}" stroke="white" stroke-width="2"/>`;
+  });
+
+  // 라벨
+  angles.forEach((a, i) => {
+    const labelR = R + 26;
+    const p = pt(labelR, a);
+    const score = scoreVals[i];
+    html += `
+      <text x="${p.x}" y="${p.y - 8}" text-anchor="middle" dominant-baseline="middle"
+        font-size="18" font-family="Noto Serif KR, serif" font-weight="900"
+        fill="${colors[i]}">${labels[i]}</text>
+      <text x="${p.x}" y="${p.y + 11}" text-anchor="middle" dominant-baseline="middle"
+        font-size="13" font-family="Noto Sans KR, sans-serif" font-weight="700"
+        fill="${colors[i]}">${score}점</text>
+    `;
+  });
+
+  // 중앙 총점
+  const total = scoreVals.reduce((a, b) => a + b, 0);
+  html += `
+    <text x="${cx}" y="${cy - 8}" text-anchor="middle" font-size="22" font-weight="900"
+      font-family="Noto Serif KR, serif" fill="#1B2A4A">${total}</text>
+    <text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="11"
+      font-family="Noto Sans KR, sans-serif" fill="#999">/ 100점</text>
+  `;
+
+  svg.innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════
+   SCORE BARS
+═══════════════════════════════════════════ */
+function buildScoreBars(scores) {
+  const container = document.getElementById('scoreBars');
+  container.innerHTML = '<h3 style="font-size:15px;font-weight:700;color:#1B2A4A;margin-bottom:16px;">역량별 점수</h3>';
+
+  DIMS.forEach(dim => {
+    const score = scores[dim.key];
+    const pct = (score / 20) * 100;
+    const div = document.createElement('div');
+    div.className = 'score-bar-item';
+    div.innerHTML = `
+      <div class="score-label" style="color:${dim.color}">${dim.label}</div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:0%;background:${dim.color}" data-score="${score}점" data-target="${pct}"></div>
+      </div>
+      <div class="score-num" style="color:${dim.color}">${score}<span style="font-size:10px;font-weight:400;color:#aaa">/20</span></div>
+    `;
+    container.appendChild(div);
+  });
+
+  // 애니메이션
+  setTimeout(() => {
+    container.querySelectorAll('.score-bar-fill').forEach(el => {
+      el.style.transition = 'width 0.9s cubic-bezier(0.22,1,0.36,1)';
+      el.style.width = el.dataset.target + '%';
+    });
+  }, 100);
+}
+
+/* ═══════════════════════════════════════════
+   FEEDBACK CARDS
+═══════════════════════════════════════════ */
+function getLevel(score) {
+  if (score >= 15) return 'high';
+  if (score >= 10) return 'mid';
+  return 'low';
+}
+
+function buildFeedback(scores) {
+  const container = document.getElementById('feedbackCards');
+  container.innerHTML = '';
+
+  DIMS.forEach(dim => {
+    const score = scores[dim.key];
+    const lvl = getLevel(score);
+    const fb = FEEDBACK[dim.key][lvl];
+    const card = document.createElement('div');
+    card.className = 'feedback-card';
+    card.style.borderLeftColor = dim.color;
+    card.innerHTML = `
+      <div class="fc-top">
+        <div class="fc-badge" style="background:${dim.color}">${dim.label}</div>
+        <div>
+          <div class="fc-title">${dim.emoji} ${dim.label} (${dim.sub})</div>
+          <div style="font-size:11px;color:#aaa">${score}점 / 20점</div>
+        </div>
+        <span class="fc-level" style="background:${dim.color}">${fb.level}</span>
+      </div>
+      <p>${fb.msg}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+/* ═══════════════════════════════════════════
+   OVERALL MESSAGE
+═══════════════════════════════════════════ */
+function buildOverall(scores) {
+  const total = Object.values(scores).reduce((a, b) => a + b, 0);
+  const o = OVERALL.find(item => total >= item.min);
+  const container = document.getElementById('overallMsg');
+  container.innerHTML = `
+    <div class="om-quote">❝</div>
+    <h3>${o.title}</h3>
+    <p>${o.msg}</p>
+    <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.5);">총점 ${total} / 100점</p>
+  `;
+}
+
+/* ═══════════════════════════════════════════
+   SHOW RESULT
+═══════════════════════════════════════════ */
+function showResult() {
+  if (answered < totalQ) return;
+
+  const scores = calcScores();
+
+  // 날짜
+  const now = new Date();
+  document.getElementById('result-date').textContent =
+    `${now.getFullYear()}년 ${now.getMonth()+1}월 ${now.getDate()}일 진단 완료`;
+
+  // 빌드
+  drawRadar(scores);
+  buildScoreBars(scores);
+  buildFeedback(scores);
+  buildOverall(scores);
+
+  // 전환
+  document.getElementById('form-page').style.display = 'none';
+  document.getElementById('result-page').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function retry() {
+  document.getElementById('result-page').style.display = 'none';
+  document.getElementById('form-page').style.display = 'block';
+  // 초기화
+  document.querySelectorAll('input[type="radio"]').forEach(r => {
+    r.checked = false;
+    const btn = r.nextElementSibling;
+    btn.style.background = '';
+    btn.style.color = '';
+    if (btn.querySelector('.desc')) btn.querySelector('.desc').style.color = '';
+  });
+  answered = 0;
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
+buildForm();
+</script>
+</body>
+</html>
